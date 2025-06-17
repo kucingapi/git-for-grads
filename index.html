@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git for Grads - Complete Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .workflow-step {
+            transition: all 0.3s ease;
+        }
+        .workflow-step:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .code-block {
+            font-family: 'Courier New', monospace;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-6">Git for Grads</h1>
+            <p class="text-xl mb-8 opacity-90">Master Git: Your Essential Tool for Code Collaboration & Management</p>
+            <p class="text-lg opacity-80">Perfect for University Students & Fresh Graduates</p>
+        </div>
+    </header>
+
+    <!-- What is Git Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">What is Git?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Git is a distributed version control system that tracks changes in your code, 
+                    enables collaboration with team members, and helps manage your project history.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="bg-blue-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Version Control</h3>
+                    <p class="text-gray-600 leading-relaxed">Track every change in your code with complete history and the ability to revert to any previous version.</p>
+                </div>
+
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Collaboration</h3>
+                    <p class="text-gray-600 leading-relaxed">Work seamlessly with team members, merge contributions, and resolve conflicts efficiently.</p>
+                </div>
+
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="bg-purple-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Branching</h3>
+                    <p class="text-gray-600 leading-relaxed">Create parallel development paths for features, experiments, and bug fixes without affecting main code.</p>
+                </div>
+
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="bg-red-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Backup & Security</h3>
+                    <p class="text-gray-600 leading-relaxed">Distributed nature means every clone is a complete backup with full project history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Commands Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Essential Git Commands</h2>
+                <p class="text-xl text-gray-600">Master these commands to become proficient with Git</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="bg-gray-800 px-4 py-2 text-sm text-gray-300 border-b border-gray-700">
+                        Repository Setup
+                    </div>
+                    <pre class="p-4 overflow-x-auto">
+                        <code class="code-block text-green-400 text-sm">
+# Initialize a new repository
+git init
+
+# Clone an existing repository
+git clone https://github.com/user/repo.git
+
+# Check repository status
+git status
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="bg-gray-800 px-4 py-2 text-sm text-gray-300 border-b border-gray-700">
+                        Basic Operations
+                    </div>
+                    <pre class="p-4 overflow-x-auto">
+                        <code class="code-block text-green-400 text-sm">
+# Add files to staging area
+git add filename.txt
+git add .
+
+# Commit changes
+git commit -m "Your commit message"
+
+# View commit history
+git log --oneline
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="bg-gray-800 px-4 py-2 text-sm text-gray-300 border-b border-gray-700">
+                        Branching & Merging
+                    </div>
+                    <pre class="p-4 overflow-x-auto">
+                        <code class="code-block text-green-400 text-sm">
+# Create and switch to new branch
+git checkout -b feature-branch
+
+# Switch between branches
+git checkout main
+
+# Merge branch
+git merge feature-branch
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="bg-gray-800 px-4 py-2 text-sm text-gray-300 border-b border-gray-700">
+                        Remote Operations
+                    </div>
+                    <pre class="p-4 overflow-x-auto">
+                        <code class="code-block text-green-400 text-sm">
+# Push changes to remote
+git push origin main
+
+# Pull latest changes
+git pull origin main
+
+# Add remote repository
+git remote add origin url
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Git Workflow Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Git Workflow</h2>
+                <p class="text-xl text-gray-600">Follow this step-by-step workflow for effective Git usage</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="workflow-step flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="step-number flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        1
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800 mb-2">Initialize or Clone Repository</h4>
+                        <p class="text-gray-600 mb-3">Start by either creating a new repository or cloning an existing one from a remote source.</p>
+                        <code class="bg-gray-100 px-3 py-1 rounded text-sm font-mono text-purple-600">
+                            git init or git clone [url]
+                        </code>
+                    </div>
+                </div>
+
+                <div class="workflow-step flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="step-number flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        2
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800 mb-2">Create Feature Branch</h4>
+                        <p class="text-gray-600 mb-3">Create a new branch for your feature or bug fix to keep main branch stable.</p>
+                        <code class="bg-gray-100 px-3 py-1 rounded text-sm font-mono text-purple-600">
+                            git checkout -b feature/new-feature
+                        </code>
+                    </div>
+                </div>
+
+                <div class="workflow-step flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="step-number flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        3
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800 mb-2">Make Changes and Commit</h4>
+                        <p class="text-gray-600 mb-3">Edit your files, stage changes, and commit with descriptive messages.</p>
+                        <code class="bg-gray-100 px-3 py-1 rounded text-sm font-mono text-purple-600">
+                            git add . && git commit -m "Add new feature"
+                        </code>
+                    </div>
+                </div>
+
+                <div class="workflow-step flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="step-number flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        4
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800 mb-2">Push to Remote</h4>
+                        <p class="text-gray-600 mb-3">Push your branch to the remote repository for backup and collaboration.</p>
+                        <code class="bg-gray-100 px-3 py-1 rounded text-sm font-mono text-purple-600">
+                            git push origin feature/new-feature
+                        </code>
+                    </div>
+                </div>
+
+                <div class="workflow-step flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="step-number flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        5
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800 mb-2">Create Pull Request</h4>
+                        <p class="text-gray-600 mb-3">Open a pull request on GitHub/GitLab for code review and discussion.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="step-number flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        6
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800 mb-2">Merge and Clean Up</h4>
+                        <p class="text-gray-600 mb-3">After approval, merge the branch and delete the feature branch.</p>
+                        <code class="bg-gray-100 px-3 py-1 rounded text-sm font-mono text-purple-600">
+                            git merge feature/new-feature
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Git Best Practices</h2>
+                <p class="text-xl text-gray-600">Follow these practices for clean, maintainable code history</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">💬 Commit Messages</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Use present tense ("Add feature" not "Added feature")</li>
+                        <li>• Keep first line under 50 characters</li>
+                        <li>• Be descriptive and specific</li>
+                        <li>• Use conventional commit format when possible</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">🌿 Branching Strategy</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Keep main branch stable and deployable</li>
+                        <li>• Use feature branches for new development</li>
+                        <li>• Name branches descriptively (feature/user-auth)</li>
+                        <li>• Delete merged branches to keep repo clean</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">🔄 Regular Practices</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Commit frequently with small, logical changes</li>
+                        <li>• Pull latest changes before starting work</li>
+                        <li>• Review code before committing</li>
+                        <li>• Use .gitignore to exclude unnecessary files</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">👥 Collaboration</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Use pull requests for code review</li>
+                        <li>• Communicate changes with team members</li>
+                        <li>• Resolve conflicts promptly and carefully</li>
+                        <li>• Document important decisions in commits</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">🛡️ Security & Backup</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Never commit sensitive data (passwords, keys)</li>
+                        <li>• Use environment variables for secrets</li>
+                        <li>• Keep remote repositories as backups</li>
+                        <li>• Regularly push changes to remote</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">🎯 Common Mistakes to Avoid</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Don't commit directly to main branch</li>
+                        <li>• Avoid large, monolithic commits</li>
+                        <li>• Don't ignore merge conflicts</li>
+                        <li>• Never force push to shared branches</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold mb-4">Ready to Master Git?</h3>
+            <p class="text-gray-300 mb-6">Start with these basics and gradually explore advanced features as you grow as a developer.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://git-scm.com/doc" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">📖 Git Documentation</a>
+                <a href="https://github.com" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">🐙 GitHub</a>
+                <a href="https://learngitbranching.js.org/" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">🎮 Interactive Git Tutorial</a>
+            </div>
+            <p class="text-gray-400 mt-8">Git for Grads - Empowering the next generation of developers</p>
+        </div>
+    </footer>
+</body>
+</html>
